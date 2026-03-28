@@ -25,6 +25,23 @@
       <section class="gallery-section" aria-labelledby="gallery-heading">
         <h2 id="gallery-heading" class="visually-hidden">Game Collection</h2>
 
+        <div class="filter-bar" role="search" aria-label="Search and filter games">
+          <input
+            type="search"
+            id="search-input"
+            class="filter-bar__search"
+            placeholder="Search games…"
+            aria-label="Search games by title or description"
+            autocomplete="off"
+          />
+          <select id="platform-filter" class="filter-bar__select" aria-label="Filter by platform">
+            <option value="">All Platforms</option>
+          </select>
+          <select id="genre-filter" class="filter-bar__select" aria-label="Filter by genre">
+            <option value="">All Genres</option>
+          </select>
+        </div>
+
         <div
           id="game-grid"
           class="game-grid"
