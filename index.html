@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A family-focused digital museum showcasing classic retro video games across all eras and platforms." />
+    <title>Retro Game Gallery</title>
+    <link rel="icon" type="image/svg+xml" href="/images/placeholder.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-brand">
+          <span class="header-logo" aria-hidden="true">🕹️</span>
+          <h1 class="header-title">Retro Game Gallery</h1>
+        </div>
+        <p class="header-tagline">A family museum of classic video games</p>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <section class="gallery-section" aria-labelledby="gallery-heading">
+        <h2 id="gallery-heading" class="visually-hidden">Game Collection</h2>
+
+        <div
+          id="game-grid"
+          class="game-grid"
+          role="list"
+          aria-label="Classic video game collection"
+          aria-live="polite"
+          aria-busy="true"
+        >
+          <!-- Game cards are injected here by JavaScript -->
+          <p class="loading-message" aria-live="polite">Loading games…</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="footer-year"></span> Retro Game Gallery — celebrating classic games for all ages.</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
