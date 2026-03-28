@@ -1,0 +1,4 @@
+## Generic
+.env
+*.log
+tmp/
