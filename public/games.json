@@ -1,0 +1,110 @@
+[
+  {
+    "id": "super-mario-bros",
+    "title": "Super Mario Bros.",
+    "year": 1985,
+    "platform": "NES",
+    "genre": "Platform",
+    "description": "Guide Mario through the Mushroom Kingdom to rescue Princess Peach from Bowser in this groundbreaking side-scrolling platformer.",
+    "coverImage": "images/super-mario-bros.jpg"
+  },
+  {
+    "id": "the-legend-of-zelda",
+    "title": "The Legend of Zelda",
+    "year": 1986,
+    "platform": "NES",
+    "genre": "Adventure",
+    "description": "Explore a vast overworld and dangerous dungeons as Link to collect the Triforce pieces and rescue Princess Zelda.",
+    "coverImage": "images/the-legend-of-zelda.jpg"
+  },
+  {
+    "id": "pac-man",
+    "title": "Pac-Man",
+    "year": 1980,
+    "platform": "Arcade",
+    "genre": "Maze",
+    "description": "Chomp through a maze eating pellets while dodging colorful ghosts in the iconic arcade classic that defined a generation.",
+    "coverImage": "images/pac-man.jpg"
+  },
+  {
+    "id": "tetris",
+    "title": "Tetris",
+    "year": 1984,
+    "platform": "Game Boy",
+    "genre": "Puzzle",
+    "description": "Stack falling tetrominoes to clear lines and prevent the stack from reaching the top in this endlessly addictive puzzle game.",
+    "coverImage": "images/tetris.jpg"
+  },
+  {
+    "id": "street-fighter-ii",
+    "title": "Street Fighter II",
+    "year": 1991,
+    "platform": "SNES",
+    "genre": "Fighting",
+    "description": "Choose from eight world warriors and battle opponents across the globe using special moves, combos, and fierce determination.",
+    "coverImage": "images/street-fighter-ii.jpg"
+  },
+  {
+    "id": "sonic-the-hedgehog",
+    "title": "Sonic the Hedgehog",
+    "year": 1991,
+    "platform": "Sega Genesis",
+    "genre": "Platform",
+    "description": "Race through colourful zones at blistering speed as Sonic, collecting rings and defeating the evil Dr. Robotnik.",
+    "coverImage": "images/sonic-the-hedgehog.jpg"
+  },
+  {
+    "id": "donkey-kong",
+    "title": "Donkey Kong",
+    "year": 1981,
+    "platform": "Arcade",
+    "genre": "Platform",
+    "description": "Climb ladders and leap over barrels as Jumpman to rescue Pauline from the top of a steel-girder construction site.",
+    "coverImage": "images/donkey-kong.jpg"
+  },
+  {
+    "id": "mega-man-2",
+    "title": "Mega Man 2",
+    "year": 1988,
+    "platform": "NES",
+    "genre": "Action",
+    "description": "Battle eight Robot Masters and steal their powers to defeat Dr. Wily in one of the most beloved NES action platformers.",
+    "coverImage": "images/mega-man-2.jpg"
+  },
+  {
+    "id": "castlevania",
+    "title": "Castlevania",
+    "year": 1986,
+    "platform": "NES",
+    "genre": "Action",
+    "description": "Wield the Vampire Killer whip as Simon Belmont and storm Dracula's castle through six harrowing stages of monsters and traps.",
+    "coverImage": "images/castlevania.jpg"
+  },
+  {
+    "id": "final-fantasy",
+    "title": "Final Fantasy",
+    "year": 1987,
+    "platform": "NES",
+    "genre": "RPG",
+    "description": "Assemble a party of four Light Warriors, journey across a vast world, and restore the four elemental crystals to save civilisation.",
+    "coverImage": "images/final-fantasy.jpg"
+  },
+  {
+    "id": "space-invaders",
+    "title": "Space Invaders",
+    "year": 1978,
+    "platform": "Arcade",
+    "genre": "Shoot 'em up",
+    "description": "Defend Earth from descending waves of alien invaders using your laser cannon in the arcade game that launched a genre.",
+    "coverImage": "images/space-invaders.jpg"
+  },
+  {
+    "id": "contra",
+    "title": "Contra",
+    "year": 1987,
+    "platform": "NES",
+    "genre": "Run & Gun",
+    "description": "Battle through jungles, bases, and alien lairs solo or with a friend in this legendary side-scrolling run-and-gun shooter.",
+    "coverImage": "images/contra.jpg"
+  }
+]

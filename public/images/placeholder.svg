@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="400" viewBox="0 0 300 400" role="img" aria-label="No cover image available">
+  <rect width="300" height="400" fill="#2a2a4a"/>
+  <rect x="30" y="30" width="240" height="340" rx="8" fill="#1a1a3a" stroke="#4a4a8a" stroke-width="2"/>
+  <!-- Pixel art joystick icon -->
+  <rect x="125" y="130" width="50" height="50" rx="4" fill="#4a4a8a"/>
+  <rect x="140" y="115" width="20" height="80" rx="4" fill="#6a6aaa"/>
+  <rect x="105" y="150" width="90" height="20" rx="4" fill="#6a6aaa"/>
+  <circle cx="150" cy="155" r="12" fill="#8a8aca"/>
+  <!-- Text -->
+  <text x="150" y="240" font-family="monospace" font-size="14" fill="#8a8aca" text-anchor="middle">No Cover</text>
+  <text x="150" y="260" font-family="monospace" font-size="14" fill="#8a8aca" text-anchor="middle">Image</text>
+</svg>
