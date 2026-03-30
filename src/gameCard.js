@@ -42,6 +42,8 @@ export function createGameCard(game) {
   // Native lazy‑loading as a fallback; IntersectionObserver will handle most cases.
   img.loading = 'lazy';
   img.decoding = 'async';
+  // Hint the browser that this image is low priority (non‑critical)
+  img.fetchPriority = 'low';
 
   // Fall back to placeholder if the image fails to load
   img.addEventListener('error', () => {
