@@ -26,7 +26,8 @@ export function createGameCard(game) {
   // --- Wrapper <li> ---
   const article = document.createElement('li');
   article.classList.add('game-card');
-  article.setAttribute('role', 'listitem');
+  // Make the card focusable for keyboard navigation
+  article.setAttribute('tabindex', '0');
 
   // --- Cover image container ---
   const coverDiv = document.createElement('div');
