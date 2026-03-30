@@ -6,7 +6,8 @@
     <meta name="description" content="A family-focused digital museum showcasing classic retro video games across all eras and platforms." />
     <title>Retro Game Gallery</title>
     <link rel="icon" type="image/svg+xml" href="/images/placeholder.svg" />
-    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="preload" href="/src/style.css" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/src/style.css" /></noscript>
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>

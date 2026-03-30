@@ -7,6 +7,7 @@
 
 import { createGameCard } from './gameCard.js';
 import { initFilters, filterGames } from './filters.js';
+import { initLazyLoad } from './lazyLoad.js';
 
 const GAMES_URL = '/games.json';
 
@@ -79,6 +80,9 @@ function renderGallery(gridEl, games) {
     fragment.appendChild(createGameCard(game));
   }
   gridEl.appendChild(fragment);
+
+  // Initialize lazy loading for newly added images
+  initLazyLoad(gridEl);
 }
 
 /**

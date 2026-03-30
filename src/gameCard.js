@@ -33,10 +33,13 @@ export function createGameCard(game) {
   coverDiv.classList.add('game-card__cover');
 
   const img = document.createElement('img');
-  img.src = coverImage || PLACEHOLDER_IMAGE;
+  // Use a tiny placeholder initially and lazy‑load the actual cover image.
+  img.src = PLACEHOLDER_IMAGE;
+  img.dataset.src = coverImage || PLACEHOLDER_IMAGE; // real source for lazy loading
   img.alt = `Cover art for ${title} (${year})`;
   img.width = 300;
   img.height = 400;
+  // Native lazy‑loading as a fallback; IntersectionObserver will handle most cases.
   img.loading = 'lazy';
   img.decoding = 'async';
 
