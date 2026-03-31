@@ -145,6 +145,20 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* Favorite toggle button in filter bar */
+.filter-bar__favorite {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+  padding: 0.25rem;
+  transition: color var(--transition-base);
+}
+.filter-bar__favorite[aria-pressed="true"] {
+  color: var(--color-accent);
+}
 .filter-bar__search,
 .filter-bar__select {
   font-family: var(--font-sans);
@@ -296,6 +310,19 @@ body {
   overflow: hidden;
 }
 
+/* Favorite button on each game card */
+.favorite-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+  transition: color var(--transition-base);
+}
+.favorite-toggle[aria-pressed="true"] {
+  color: var(--color-accent);
+}
 /* Metadata row (year, platform, genre) */
 .game-card__meta {
   display: flex;

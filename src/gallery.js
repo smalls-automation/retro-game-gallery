@@ -8,6 +8,7 @@
 import { createGameCard } from './gameCard.js';
 import { initFilters, filterGames } from './filters.js';
 import { initLazyLoad } from './lazyLoad.js';
+import { isFavorite } from './favorites.js';
 
 const GAMES_URL = '/games.json';
 
@@ -23,14 +24,44 @@ export async function initGallery(gridEl) {
   try {
     const games = await fetchGames();
 
+    // State to keep track of current filter criteria
+    let currentFilterState = { query: '', platform: '', genre: '' };
+
+    // Function to apply filters (including favorites) and render
+    const applyAndRender = () => {
+      let filtered = filterGames(games, currentFilterState);
+      // Apply favorite filter if active
+      const favToggle = document.getElementById('favorites-toggle');
+      if (favToggle && favToggle.getAttribute('aria-pressed') === 'true') {
+        filtered = filtered.filter((g) => isFavorite(g.id));
+      }
+      renderGallery(gridEl, filtered);
+    };
+
     // Initial render — show all games
     renderGallery(gridEl, games);
 
-    // Wire up filter controls; re-render on any change
+    // Wire up filter controls; update state and re-render on any change
     initFilters(games, (filterState) => {
-      const filtered = filterGames(games, filterState);
-      renderGallery(gridEl, filtered);
+      currentFilterState = filterState;
+      applyAndRender();
     });
+
+    // Wire up favorites toggle button if present
+    const favToggleBtn = document.getElementById('favorites-toggle');
+    if (favToggleBtn) {
+      // Ensure ARIA attribute is present
+      if (!favToggleBtn.hasAttribute('aria-pressed')) {
+        favToggleBtn.setAttribute('aria-pressed', 'false');
+      }
+      favToggleBtn.addEventListener('click', () => {
+        const newState = favToggleBtn.getAttribute('aria-pressed') !== 'true';
+        favToggleBtn.setAttribute('aria-pressed', String(newState));
+        // Update button label/icon based on state
+        favToggleBtn.textContent = newState ? '♥' : '♡';
+        applyAndRender();
+      });
+    }
   } catch (err) {
     console.error('[Gallery] Failed to load games:', err);
     renderError(gridEl, 'Sorry, we could not load the game collection. Please try refreshing the page.');

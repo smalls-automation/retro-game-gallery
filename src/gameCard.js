@@ -5,6 +5,8 @@
  * Each card displays: cover image, title, year, platform, genre, and description.
  */
 
+import { isFavorite, toggleFavorite } from './favorites.js';
+
 const PLACEHOLDER_IMAGE = '/images/placeholder.svg';
 
 /**
@@ -76,7 +78,32 @@ export function createGameCard(game) {
   descEl.classList.add('game-card__description');
   descEl.textContent = description;
 
-  body.appendChild(titleEl);
+  // Append favorite toggle button
+  const favBtn = document.createElement('button');
+  favBtn.type = 'button';
+  favBtn.classList.add('favorite-toggle');
+  // Determine initial state from localStorage
+  const isFav = isFavorite(id);
+  favBtn.setAttribute('aria-pressed', String(isFav));
+  favBtn.textContent = isFav ? '♥' : '♡';
+  favBtn.addEventListener('click', () => {
+    const nowFav = toggleFavorite(id);
+    favBtn.setAttribute('aria-pressed', String(nowFav));
+    favBtn.textContent = nowFav ? '♥' : '♡';
+    // Optionally, you could trigger a custom event to notify other components
+  });
+  // Insert the button into the body, aligned to the right of the title
+  const titleContainer = document.createElement('div');
+  titleContainer.style.display = 'flex';
+  titleContainer.style.justifyContent = 'space-between';
+  titleContainer.style.alignItems = 'center';
+  // Move title into container
+  titleContainer.appendChild(titleEl);
+  titleContainer.appendChild(favBtn);
+  // Insert title container into body before meta and description
+  body.appendChild(titleContainer);
+
+  // Append meta and description after title container
   body.appendChild(meta);
   body.appendChild(descEl);
 
