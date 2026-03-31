@@ -8,6 +8,7 @@
 import { createGameCard } from './gameCard.js';
 import { initFilters, filterGames } from './filters.js';
 import { initLazyLoad } from './lazyLoad.js';
+import { getFavorites, initFavoritesToggle } from './favorites.js';
 
 const GAMES_URL = '/games.json';
 
@@ -23,13 +24,33 @@ export async function initGallery(gridEl) {
   try {
     const games = await fetchGames();
 
-    // Initial render — show all games
-    renderGallery(gridEl, games);
+    // State variables
+    let filteredGames = games; // current list after filter controls
+    let showFavoritesOnly = false; // toggle from favorites button
 
-    // Wire up filter controls; re-render on any change
+    // Helper to render based on current state
+    const render = () => {
+      let toRender = filteredGames;
+      if (showFavoritesOnly) {
+        const favSet = getFavorites();
+        toRender = toRender.filter((g) => favSet.has(g.id));
+      }
+      renderGallery(gridEl, toRender);
+    };
+
+    // Initial render — show all games
+    render();
+
+    // Wire up filter controls; update filteredGames and re-render on any change
     initFilters(games, (filterState) => {
-      const filtered = filterGames(games, filterState);
-      renderGallery(gridEl, filtered);
+      filteredGames = filterGames(games, filterState);
+      render();
+    });
+
+    // Initialise favorites toggle button
+    initFavoritesToggle((showOnly) => {
+      showFavoritesOnly = showOnly;
+      render();
     });
   } catch (err) {
     console.error('[Gallery] Failed to load games:', err);

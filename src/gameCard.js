@@ -5,6 +5,8 @@
  * Each card displays: cover image, title, year, platform, genre, and description.
  */
 
+import { isFavorite, toggleFavorite } from './favorites.js';
+
 const PLACEHOLDER_IMAGE = '/images/placeholder.svg';
 
 /**
@@ -82,6 +84,28 @@ export function createGameCard(game) {
 
   article.appendChild(coverDiv);
   article.appendChild(body);
+
+  // Favorite button
+  const favBtn = document.createElement('button');
+  favBtn.classList.add('favorite-btn');
+  favBtn.setAttribute('aria-label', 'Mark as favorite');
+  favBtn.innerHTML = '♥';
+  // Set initial state
+  if (isFavorite(id)) {
+    favBtn.classList.add('favorited');
+    favBtn.setAttribute('aria-pressed', 'true');
+  } else {
+    favBtn.setAttribute('aria-pressed', 'false');
+  }
+  favBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleFavorite(id);
+    const nowFav = isFavorite(id);
+    favBtn.classList.toggle('favorited', nowFav);
+    favBtn.setAttribute('aria-pressed', nowFav ? 'true' : 'false');
+  });
+  // Append button to article (overlay on cover)
+  article.appendChild(favBtn);
 
   return article;
 }
